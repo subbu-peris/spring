@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- BEAN DEFINITIONS -->
+<!-- 	Beans are configured and wired -->
+
+<!-- SETTER INJECTION -->
+	<bean name="customerRepository"
+		class="com.demo.repository.HibernateCustomerRepositoryImpl"></bean>
+	<bean name="customerService"
+		class="com.demo.service.CustomerServiceImpl">
+	<!-- 	setter injection wired by name -->
+		<property name="customerRepository" ref="customerRepository"></property>
+	</bean>
+
+<!-- 	<bean name="customerRepositoryBean"
+		class="com.demo.repository.HibernateCustomerRepositoryImpl"></bean>
+
+	<bean name="customerService"
+		class="com.demo.service.CustomerServiceImpl">
+		setter injection wired by name
+		<property name="customerRepository"
+			ref="customerRepositoryBean"></property>
+	</bean> -->
+	
+<!-- CONSTRUCTOR INJECTION -->
+	<!-- <bean name="customerRepositoryBean"
+		class="com.demo.repository.HibernateCustomerRepositoryImpl"></bean>
+
+	<bean name="customerService"
+		class="com.demo.service.CustomerServiceImpl">
+		<constructor-arg index="0"
+			ref="customerRepositoryBean"></constructor-arg >
+	</bean> -->	
+	
+	
+	<!-- AUTOWIRE BY CONSTRUCTOR -->
+	<!-- <bean name="customerRepositoryBean"
+		class="com.demo.repository.HibernateCustomerRepositoryImpl"></bean>
+
+	<bean name="customerService"
+		class="com.demo.service.CustomerServiceImpl" autowire="constructor">
+		<constructor-arg index="0"
+			ref="customerRepositoryBean"></constructor-arg >
+	</bean>	 -->
+	
+		<!-- AUTOWIRE BY TYPE -->
+<!-- 	<bean name="customerRepositoryBean"
+		class="com.demo.repository.HibernateCustomerRepositoryImpl"></bean>
+
+	<bean name="customerService"
+		class="com.demo.service.CustomerServiceImpl" autowire="byType">
+		<constructor-arg index="0"
+			ref="customerRepositoryBean"></constructor-arg >
+	</bean> -->
+	
+	<!-- AUTOWIRE BY NAME -->
+<!-- 	<bean name="customerRepository"
+		class="com.demo.repository.HibernateCustomerRepositoryImpl"></bean>
+
+	<bean name="customerService"
+		class="com.demo.service.CustomerServiceImpl" autowire="byName">
+		<constructor-arg index="0"
+			ref="customerRepositoryBean"></constructor-arg >
+	</bean> -->
+	
+	<!-- AUTOWIRE BY NAME -->
+<!-- 	<bean name="customerRepositoryBean"
+		class="com.demo.repository.HibernateCustomerRepositoryImpl"></bean>
+
+	<bean name="customerService1"
+		class="com.demo.service.CustomerServiceImpl" autowire="byName">
+		<constructor-arg index="0"
+			ref="customerRepositoryBean"></constructor-arg >
+	</bean> -->
+	
+</beans>
